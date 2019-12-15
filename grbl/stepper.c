@@ -533,7 +533,14 @@ void st_prep_buffer()
     if (pl_block == NULL) {
       pl_block = plan_get_current_block(); // Query planner for a queued block
       if (pl_block == NULL) { return; } // No planner blocks. Exit.
+		  
+	  if( pl_block->steps[Y_AXIS] != 0 )
+	  {
+		printPgmString("Dale");
+		return;  
+	  }
                       
+      //printString("Segment");
       // Check if the segment buffer completed the last planner block. If so, load the Bresenham
       // data for the block. If not, we are still mid-block and the velocity profile was updated. 
       if (prep.flag_partial_block) {

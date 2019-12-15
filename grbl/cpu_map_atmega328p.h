@@ -68,7 +68,6 @@
   #define Z_LIMIT_BIT    3  // Uno Digital Pin 11
 #endif
 //#define LIMIT_MASK       ((1<<X_LIMIT_BIT)|(1<<Y_LIMIT_BIT)|(1<<Z_LIMIT_BIT)) // All limit bits
-#define LIMIT_MASK       (1<<X_LIMIT_BIT) //Only the X limit bit
 #define LIMIT_INT        PCIE0  // Pin change interrupt enable pin
 #define LIMIT_INT_vect   PCINT0_vect 
 #define LIMIT_PCMSK      PCMSK0 // Pin change interrupt register
@@ -145,14 +144,4 @@
   #define SPINDLE_PWM_DDR	  DDRB
   #define SPINDLE_PWM_PORT  PORTB
   #define SPINDLE_PWM_BIT	  3    // Uno Digital Pin 11
-  
-  #define COMA_BIT           COM2A1
-  #define SERVO_OCRY         OCR_REGISTER
-  #define SERVO_OCRZ         OCR2B
-  #define SERVO_PWM_DDR      DDRB
-  #define SERVO_PWM_PORT     PORTB
-  #define SERVO2_PWM_DDR     DDRD
-  #define SERVO2_PWM_PORT    PORTD
-  #define SERVO_PWM_YBIT     3
-  #define SERVO_PWM_ZBIT     3
 #endif // End of VARIABLE_SPINDLE

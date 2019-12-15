@@ -106,7 +106,11 @@ void protocol_main_loop()
     // With a better processor, it would be very easy to pull this initial parsing out as a 
     // seperate task to be shared by the g-code parser and Grbl's system commands.
     
+	#if( 1 )
     while((c = serial_read()) != SERIAL_NO_DATA) {
+	#else
+	while((c = serial_read_test()) != SERIAL_NO_DATA) {
+	#endif
       if ((c == '\n') || (c == '\r')) { // End of line reached
         line[char_counter] = 0; // Set string termination character.
         protocol_execute_line(line); // Line is complete. Execute it!
